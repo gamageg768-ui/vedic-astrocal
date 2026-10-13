@@ -18,7 +18,7 @@
     "swisseph": "^0.5.17"
   },
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   },
   "devDependencies": {
     "@types/node": "^20",
