@@ -17,6 +17,9 @@
     "react-dom": "^18",
     "swisseph": "^0.5.17"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
