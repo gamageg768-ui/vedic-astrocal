@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --vedic-gold: #b45309;
+  --vedic-gold-light: #d97706;
+  --vedic-bg: #fffdf7;
+  --vedic-surface: #ffffff;
+  --vedic-border: #e7e5e4;
+  --vedic-text: #1c1917;
+  --vedic-muted: #78716c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'EB Garamond', serif;
+  background-color: var(--vedic-bg);
+  color: var(--vedic-text);
+  min-height: 100vh;
+}
+
+/* Subtle warm parchment texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 15% 10%, rgba(180, 83, 9, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 90%, rgba(217, 119, 6, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(253, 230, 138, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gold shimmer text — amber tones on light bg */
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #92400e 0%,
+    #b45309 25%,
+    #d97706 50%,
+    #b45309 75%,
+    #92400e 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Light card — white surface with soft shadow */
+.glass-card {
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.glass-card-darker {
+  background: #fdf8f0;
+  border: 1px solid #f5ede0;
+}
+
+/* Mandala decoration */
+.mandala-border {
+  border: 1px solid rgba(180, 83, 9, 0.25);
+  position: relative;
+}
+
+.mandala-border::before,
+.mandala-border::after {
+  content: '✦';
+  position: absolute;
+  color: rgba(180, 83, 9, 0.4);
+  font-size: 10px;
+}
+
+/* Table styles */
+.vedic-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.vedic-table th {
+  background: #fef3c7;
+  color: #92400e;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  text-align: center;
+  border-bottom: 1px solid #fde68a;
+}
+
+.vedic-table td {
+  padding: 7px 10px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #44403c;
+  border-bottom: 1px solid #f5f5f4;
+  transition: background 0.2s;
+}
+
+.vedic-table tr:hover td {
+  background: #fafaf9;
+}
+
+.vedic-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}
+
+/* Input styles */
+.vedic-input {
+  background: #ffffff;
+  border: 1px solid #d6d3d1;
+  color: #1c1917;
+  transition: all 0.2s;
+}
+
+.vedic-input:focus {
+  outline: none;
+  border-color: #b45309;
+  box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.1);
+  background: #ffffff;
+}
+
+.vedic-input::placeholder {
+  color: #a8a29e;
+}
+
+/* Native date/time picker — amber-tinted indicator icon */
+.date-picker::-webkit-calendar-picker-indicator,
+.time-picker::-webkit-webkit-calendar-picker-indicator,
+.time-picker::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  filter: sepia(1) saturate(4) hue-rotate(5deg) brightness(0.7);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.date-picker::-webkit-calendar-picker-indicator:hover,
+.time-picker::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Remove default inner-spin on number inputs used for coords */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 0.4;
+}
+
+/* Primary button */
+.btn-gold {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #b45309 100%);
+  color: #ffffff;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(180, 83, 9, 0.25);
+}
+
+.btn-gold:hover {
+  box-shadow: 0 6px 25px rgba(180, 83, 9, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+/* Ghost button */
+.btn-ghost {
+  background: #f5f5f4;
+  border: 1px solid #e7e5e4;
+  color: #57534e;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+  background: #e7e5e4;
+  border-color: #d6d3d1;
+  color: #1c1917;
+}
+
+/* Dignity badges — darker tones for light bg */
+.badge-exalted     { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+.badge-debilitated { background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; }
+.badge-own         { background: #dbeafe; color: #1d4ed8; border: 1px solid #93c5fd; }
+.badge-neutral     { background: #f5f5f4; color: #78716c; border: 1px solid #e7e5e4; }
+.badge-moolatrikona{ background: #f3e8ff; color: #7c3aed; border: 1px solid #d8b4fe; }
+
+/* Loading spinner */
+@keyframes cosmic-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cosmic-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(180, 83, 9, 0.1);
+  border-top-color: #b45309;
+  border-radius: 50%;
+  animation: cosmic-spin 0.8s linear infinite;
+}
+
+/* AI insight text */
+.insight-text {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #44403c;
+}
+
+.insight-text p {
+  margin-bottom: 1rem;
+}
+
+.insight-text strong {
+  color: #b45309;
+  font-weight: 600;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
